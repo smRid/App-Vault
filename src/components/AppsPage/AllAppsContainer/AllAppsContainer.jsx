@@ -1,11 +1,10 @@
+"use client";
 import React from "react";
 import { HashLoader } from "react-spinners";
-import TrendingAppCard from "../../HomePage/TrendingApps/TrendingAppCard/TrendingAppCard";
-import useApps from "../../../hooks/useApps";
+import TrendingAppCard from "@/components/homepage/TrendingApps/TrendingAppCard/TrendingAppCard";
+import appsData from "@/../public/data.json";
 
 const AllAppsContainer = () => {
-  const { allApps, loading } = useApps();
-
   return (
     <section className="mb-20 container mx-auto px-5">
       <div>
@@ -13,7 +12,7 @@ const AllAppsContainer = () => {
           <div className="mb-4 flex flex-col sm:flex-row gap-y-4 justify-between sm:items-center">
             <div>
               <p className="flex gap-1 items-center text-[#001931] text-2xl font-semibold">
-                <span>({allApps.length})</span>
+                <span>({appsData.length})</span>
                 <span>Apps Found</span>
               </p>
             </div>
@@ -43,19 +42,11 @@ const AllAppsContainer = () => {
           </div>
 
           <div>
-            {loading ? (
-              <div className="mt-10 flex justify-center">
-                <HashLoader color="#632EE3" />
-              </div>
-            ) : (
-              <div>
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {allApps.map((app) => (
-                    <TrendingAppCard key={app.id} app={app} />
-                  ))}
-                </div>
-              </div>
-            )}
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {appsData.map((app) => (
+                <TrendingAppCard key={app.id} app={app} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

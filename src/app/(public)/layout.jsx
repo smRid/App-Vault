@@ -1,12 +1,18 @@
 import Navbar from "@/components/shared/Navbar/Navbar";
-import React from "react";
+import Footer from "@/components/shared/Footer/Footer";
 
 const PublicLayout = ({ children }) => {
   return (
-    <div>
-      <Navbar />
-      {children}
-      <h2 className="bg-purple-500  text-center py-7">Footer</h2>
+    <div className="flex flex-col min-h-screen">
+      <header>
+        <Navbar />
+      </header>
+
+      <main className="flex-1">{children}</main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

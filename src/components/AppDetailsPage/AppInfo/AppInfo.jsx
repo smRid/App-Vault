@@ -1,6 +1,7 @@
+"use client";
 import { ArrowDownToLine, Star, ThumbsUp } from "lucide-react";
 import React, { useContext } from "react";
-import { AppContext } from "../../../Context/AppContext/AppContextProvider";
+import { AppContext } from "@/context/AppContext/AppContextProvider";
 
 const AppInfo = ({ expectedApp }) => {
   const { handleInstallBtn, installedApps } = useContext(AppContext);

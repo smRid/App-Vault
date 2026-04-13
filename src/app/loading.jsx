@@ -1,13 +1,11 @@
-import React from "react";
-// import { HashLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 
-const loading = () => {
+const Loading = () => {
   return (
-    <div className="flex justify-center items-center bg-purple-200 h-screen font-bold text-5xl">
-        Global loading......
-      {/* <HashLoader color="#ad46ff" /> */}
+    <div className="flex justify-center items-center min-h-screen">
+      <HashLoader color="#632EE3" />
     </div>
   );
 };
 
-export default loading;
+export default Loading;

@@ -1,5 +1,6 @@
+"use client";
 import React, { useContext } from "react";
-import { AppContext } from "../../../Context/AppContext/AppContextProvider";
+import { AppContext } from "@/context/AppContext/AppContextProvider";
 import { ChevronDown } from "lucide-react";
 import InstalledAppCard from "./InstalledAppCard/InstalledAppCard";
 

@@ -1,3 +1,4 @@
+"use client";
 import React, { useContext } from "react";
 import {
   Cell,
@@ -7,14 +8,13 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { AppContext } from "../../../Context/AppContext/AppContextProvider";
-import useApps from "../../../hooks/useApps";
+import { AppContext } from "@/context/AppContext/AppContextProvider";
+import appsData from "@/../public/data.json";
 
 const InstallPieChart = () => {
   const { installedApps = [] } = useContext(AppContext);
-  const { allApps = [] } = useApps();
 
-  const uninstalled = allApps.length - installedApps.length;
+  const uninstalled = appsData.length - installedApps.length;
 
   const data = [
     { name: "Installed", value: installedApps.length, fill: "#0088FE" },

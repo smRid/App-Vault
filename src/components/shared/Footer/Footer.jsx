@@ -1,8 +1,9 @@
 import React from "react";
-import FooterLogo from "../../../assets/images/logo.png";
+import FooterLogo from "@/assets/images/logo.png";
+import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
-import { Link } from "react-router";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
         <div>
           <div className="flex justify-between items-center">
             <span className="flex gap-1 items-center">
-              <img width={40} src={FooterLogo} />
+              <Image width={40} height={40} src={FooterLogo} alt="Footer Logo" />
               <span className="text-base-100 font-bold">HERO.IO</span>
             </span>
 
@@ -21,13 +22,13 @@ const Footer = () => {
               </span>
 
               <div className="mt-4 flex gap-4 items-center text-base-100">
-                <Link to="/">
+                <Link href="/">
                   <FaXTwitter />
                 </Link>
-                <Link to="/">
+                <Link href="/">
                   <FaLinkedin />
                 </Link>
-                <Link to="/">
+                <Link href="/">
                   <FaFacebook />
                 </Link>
               </div>

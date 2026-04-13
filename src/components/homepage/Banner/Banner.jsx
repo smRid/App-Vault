@@ -1,8 +1,9 @@
 import React from "react";
-import BannerLogo from "../../../assets/images/hero.png";
-import PlayStoreLogo from "../../../assets/images/google-play.png";
-import PHStoreLogo from "../../../../public/favicon-logo.png";
-import { Link } from "react-router";
+import BannerImg from "@/assets/images/hero.png";
+import PlayStoreLogo from "@/assets/images/google-play.png";
+import PHStoreLogo from "@/../public/favicon-logo.png";
+import Link from "next/link";
+import Image from "next/image";
 
 const Banner = () => {
   return (
@@ -27,11 +28,11 @@ const Banner = () => {
             <div className="mb-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 className="btn h-14 shadow-none bg-transparent border border-[#D2D2D2] rounded-sm"
-                to="https://play.google.com/store/apps"
+                href="https://play.google.com/store/apps"
                 target="_blank"
               >
                 <span>
-                  <img width={32} src={PlayStoreLogo} />
+                  <Image width={32} height={32} src={PlayStoreLogo} alt="Play Store" />
                 </span>
 
                 <span className="text-[#001931] text-xl font-semibold">
@@ -40,15 +41,15 @@ const Banner = () => {
               </Link>
 
               <Link
-                to="/"
+                href="/"
                 className="btn h-14 shadow-none bg-transparent border border-[#D2D2D2] rounded-sm"
               >
                 <span>
-                  <img width={30} src={PHStoreLogo} />
+                  <Image width={30} height={30} src={PHStoreLogo} alt="PH Store" />
                 </span>
                 
                 <span className="text-[#001931] text-xl font-semibold">
-                  PH-AppStore
+                  App Vault
                 </span>
               </Link>
             </div>
@@ -56,7 +57,7 @@ const Banner = () => {
 
           <div className="flex justify-center">
             <figure>
-              <img src={BannerLogo} alt="Banner Image" />
+              <Image src={BannerImg} alt="Banner Image" priority />
             </figure>
           </div>
         </div>

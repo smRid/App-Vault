@@ -1,6 +1,7 @@
+"use client";
 import { Download, Star } from "lucide-react";
 import React, { useContext } from "react";
-import { AppContext } from "../../../../Context/AppContext/AppContextProvider";
+import { AppContext } from "@/context/AppContext/AppContextProvider";
 import { toast } from "react-toastify";
 
 const InstalledAppCard = ({ app }) => {
@@ -22,7 +23,7 @@ const InstalledAppCard = ({ app }) => {
     <div className="p-4 bg-base-100 rounded-sm shadow flex justify-between sm:items-center">
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
         <div className="w-20 h-20">
-          <img src={app.image} />
+          <img src={app.image} alt={app.title} />
         </div>
 
         <div>

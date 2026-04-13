@@ -1,49 +1,36 @@
+"use client";
 import React from "react";
-import NavLogo from "../../../../src/assets/images/logo.png";
-import { Link, NavLink } from "react-router";
+import NavLogo from "@/assets/images/logo.png";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/apps-page", label: "Apps" },
+    { href: "/installation-page", label: "Installation" },
+  ];
+
+  const getNavClass = (href) => {
+    const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+    return isActive
+      ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent border-b border-[#632EE3] rounded-none font-semibold"
+      : "text-[#000000]/90 font-medium";
+  };
+
   const navLink = (
     <>
-      <li>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent border-b border-[#632EE3] rounded-none font-semibold"
-              : "text-[#000000]/90 font-medium"
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-
-      <li>
-        <NavLink
-          to="/apps-page"
-          className={({ isActive }) =>
-            isActive
-              ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent border-b border-[#632EE3] rounded-none font-semibold"
-              : "text-[#000000]/90 font-medium"
-          }
-        >
-          Apps
-        </NavLink>
-      </li>
-
-      <li>
-        <NavLink
-          to="/installation-page"
-          className={({ isActive }) =>
-            isActive
-              ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent border-b border-[#632EE3] rounded-none font-semibold"
-              : "text-[#000000]/90 font-medium"
-          }
-        >
-          Installation
-        </NavLink>
-      </li>
+      {navItems.map((item) => (
+        <li key={item.href}>
+          <Link href={item.href} className={getNavClass(item.href)}>
+            {item.label}
+          </Link>
+        </li>
+      ))}
     </>
   );
 
@@ -83,9 +70,9 @@ const Navbar = () => {
               </ul>
             </div>
 
-            <Link to="/" className="flex gap-1 items-center">
+            <Link href="/" className="flex gap-1 items-center">
               <span>
-                <img width={40} src={NavLogo} alt="Navbar Logo" />
+                <Image width={40} height={40} src={NavLogo} alt="Navbar Logo" />
               </span>
 
               <span className="bg-linear-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent font-bold">HERO.IO</span>

@@ -1,11 +1,11 @@
 import { ArrowDownToLine, Star } from "lucide-react";
 import React from "react";
-import { Link } from "react-router";
+import Link from "next/link";
 
 const TrendingAppCard = ({ app }) => {
   return (
     <Link
-      to={`/apps-page/${app.id}`}
+      href={`/apps-page/${app.id}`}
       className="p-4 bg-base-100 shadow rounded-sm"
     >
       <div className="mb-4 p-0.5 bg-[#D9D9D9] rounded-lg">

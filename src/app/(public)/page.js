@@ -1,13 +1,18 @@
-import Banner from "@/components/homepage/Banner";
-import Stats from "@/components/homepage/Stats";
-import TrendingApps from "@/components/homepage/TrendingApps";
+import Banner from "@/components/homepage/Banner/Banner";
+import Stats from "@/components/homepage/Stats/Stats";
+import TrendingApps from "@/components/homepage/TrendingApps/TrendingApps";
 
-export default function Home() {
+export const metadata = {
+  title: "App Vault | Home",
+  description: "We build productive apps - explore trending applications",
+};
+
+export default function HomePage() {
   return (
-    <div>
+    <>
       <Banner />
       <Stats />
-      <TrendingApps from="homepage"/>
-    </div>
+      <TrendingApps />
+    </>
   );
 }
